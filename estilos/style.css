@@ -404,112 +404,63 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
-    padding: 100px;
+    padding: 80px 20px;
 }
-
 .titulo-projetos h1{
-    width: 50vh;
-    text-align: center;
     font-family: "Dela Gothic One", sans-serif;
     font-size: 40px;
-    background-color: #ffee00;
-    color: #222;
-    border: 2px solid black;
+    background: #ffee00;
+    color: #141414;
     border-radius: 20px;
+    padding: 10px;
     margin-bottom: 10px;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.3s ease-in-out;
+    border: 2px solid black;
 }
-
-.titulo-projetos h1:hover{
-    transform: scale(1.1);
-    filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.452));
-}
-
-
 .titulo-projetos p{
-    text-align: center;
-    font-size: 30px;
-    font-weight: bolder;
-    padding-bottom: 10px;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #222;
 }
-
 #cards{
     display: flex;
-    justify-content: center;
-    flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 40px;
-    margin: 0 auto;
-    padding: 50px;
-    text-align: center;
 }
-#card-1, #card-2{
+#cards div{
     width: 500px;
-    height: 500px;
     border-radius: 20px;
-    background-color: #303030;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.521);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    background: #303030;
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
-
-#card-1:hover, #card-2:hover {
-    transform: scale(1.1);
-    box-shadow: 15px 15px 25px rgba(0, 0, 0, 0.4);
+#cards div:hover{
+    transform: scale(1.05) rotate(-1deg);
+    box-shadow: 0 0 30px #ffee00;
 }
-
-#card-1 img{
-    width: 500px;
-    border-radius: 20px 20px 0px 0px;
+#cards img{
+    width: 100%;
+    border-radius: 15px 15px 0 0;
 }
-
-#card-2 img{
-    width: 500px;
-    height: 205px;
-    border-radius: 15px 15px 0px 0px;
-}
-.conteudo-cards{
+.conteudo-cards {
     padding: 20px;
 }
-
-
-.conteudo-cards h1 {
-    font-size: 24px;
-    font-weight: bold;
-    color: #ffffff;
-    text-align: left;
-    margin-bottom: 10px;
-}
-
-
-.conteudo-cards p {
-    font-size: 16px;
-    color: #ffffff;
-    line-height: 1.6;
-    margin-bottom: 15px;
-    text-align: left;
-    padding-bottom: 50px;
-}
-
-
-.conteudo-cards a {
-    display: inline-block;
-    text-decoration: none;
-    background-color: #ffee00;
-    color: #242424;
-    font-weight: bold;
+.conteudo-cards h1{ color: #fff; font-size: 22px; margin-bottom: 10px; }
+.conteudo-cards p{ color: #ddd; font-size: 16px; margin-bottom: 15px; }
+.conteudo-cards a{
+    background-color: #222;
+    color: #fff;
     padding: 10px 15px;
-    border-radius: 8px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
     transition: 0.3s;
-    margin: 5px;
 }
-
-.conteudo-cards a:hover {
-    background-color: #ffffff;
-    color: #000000;
-    transform: scale(1.05);
+.conteudo-cards a:hover{
+    background-color: #1f1f1f;
+    color: #ffee00;
+    transform: scale(1.1);
 }
 
 #contato {
