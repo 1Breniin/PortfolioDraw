@@ -55,3 +55,30 @@ function toggleMenu() {
   menu.classList.toggle("show");
   hamburguer.classList.toggle("ativo"); // Adiciona a classe para mudar a cor
 }
+
+// Modal de Artes Digitais
+function abrirModal(imagemSrc, titulo, descricao) {
+    const modal = document.getElementById('modal-arte');
+    const imgModal = document.getElementById('imagem-modal');
+    const tituloModal = document.getElementById('modal-titulo');
+    const descricaoModal = document.getElementById('modal-descricao');
+    
+    modal.classList.add('show');
+    imgModal.src = imagemSrc;
+    tituloModal.textContent = titulo;
+    descricaoModal.textContent = descricao;
+    document.body.style.overflow = 'hidden';
+}
+
+function fecharModal() {
+    const modal = document.getElementById('modal-arte');
+    modal.classList.remove('show');
+    document.body.style.overflow = 'auto';
+}
+
+// Fechar modal com tecla ESC
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        fecharModal();
+    }
+});

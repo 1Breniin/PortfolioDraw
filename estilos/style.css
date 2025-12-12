@@ -427,13 +427,18 @@ nav {
     flex-wrap: wrap;
     justify-content: center;
     gap: 40px;
+    width: 100%;
 }
 #cards div{
     width: 500px;
+    max-width: 100%;
     border-radius: 20px;
     background: #303030;
     box-shadow: 5px 5px 20px rgba(0,0,0,0.5);
     transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 #cards div:hover{
     transform: scale(1.05) rotate(-1deg);
@@ -441,13 +446,38 @@ nav {
 }
 #cards img{
     width: 100%;
+    height: auto;
+    min-height: 300px;
+    object-fit: cover;
     border-radius: 15px 15px 0 0;
+    display: block;
+    flex-shrink: 0;
 }
 .conteudo-cards {
     padding: 20px;
+    box-sizing: border-box;
+    width: 100%;
+    flex-grow: 1;
 }
-.conteudo-cards h1{ color: #fff; font-size: 22px; margin-bottom: 10px; }
-.conteudo-cards p{ color: #ddd; font-size: 16px; margin-bottom: 15px; }
+.conteudo-cards h1{ 
+    color: #fff; 
+    font-size: 22px; 
+    margin-bottom: 10px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    width: 100%;
+}
+.conteudo-cards p{ 
+    color: #ddd; 
+    font-size: 16px; 
+    margin-bottom: 15px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    line-height: 1.5;
+    width: 100%;
+}
 .conteudo-cards a{
     background-color: #222;
     color: #fff;
@@ -581,3 +611,199 @@ footer a:hover {
     }
 }
 
+/* Seção Artes Digitais */
+#artes-digitais {
+    width: 100%;
+    max-width: 1400px;
+    margin: 80px auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.titulo-artes {
+    margin-bottom: 50px;
+}
+
+.titulo-artes h1 {
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 40px;
+    background: #ffee00;
+    color: #141414;
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid black;
+    
+}
+
+.titulo-artes p {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #222;
+}
+
+/* Mosaico de Artes - Quebra-cabeça */
+.mosaico-artes {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(2, 200px);
+    gap: 5px;
+    padding: 0;
+    max-width: 100%;
+}
+
+.arte-mosaico {
+    position: relative;
+    overflow: hidden;
+    background: #f5f5f5;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid #fff;
+}
+
+.arte-mosaico:hover {
+    transform: scale(1.05);
+    z-index: 100;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-color: #ffee00;
+}
+
+.arte-mosaico img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.arte-mosaico:hover img {
+    transform: scale(1.1);
+    filter: brightness(0.7);
+}
+
+.overlay-mosaico {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.arte-mosaico:hover .overlay-mosaico {
+    opacity: 1;
+}
+
+.overlay-mosaico .ver-mais {
+    color: #222;
+    font-size: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 15px;
+    border: 1px solid #222;
+    transition: all 0.4s ease;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.overlay-mosaico .ver-mais::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.arte-mosaico:hover .ver-mais::before {
+    width: 300px;
+    height: 300px;
+}
+
+.arte-mosaico:hover .ver-mais {
+    transform: scale(1.1) translateY(-2px);
+    border-color: #fff;
+    background: #ffffff;
+}
+
+/* Modal para visualização completa */
+.modal-arte {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    animation: fadeIn 0.3s;
+}
+
+.modal-arte.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.modal-conteudo {
+    max-width: 90%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 10px;
+    animation: zoomIn 0.3s;
+}
+
+.modal-fechar {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: #fff;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.modal-fechar:hover {
+    color: #ffee00;
+}
+
+.modal-info {
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+    max-width: 600px;
+}
+
+.modal-info h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #ffee00;
+}
+
+.modal-info p {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.8); }
+    to { transform: scale(1); }
+}

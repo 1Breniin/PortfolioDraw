@@ -210,6 +210,7 @@
     border-radius: 8px;
     transition: 0.3s;
     margin: 5px;
+    
 }
 
 
@@ -290,8 +291,109 @@ footer p {
     .menu-links a {
         padding: 0;
     }
+
+    /* Mosaico de Artes Digitais - Desktop */
+    .mosaico-artes {
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: repeat(2, 200px);
+    }
 }
 
+/* Media Query para Tablets */
+@media (max-width: 1024px) {
+    /* Ajustes para Artes Digitais */
+    #artes-digitais {
+        padding: 40px 10px;
+    }
+
+    .titulo-artes h1 {
+        font-size: 36px;
+    }
+
+    .titulo-artes p {
+        font-size: 18px;
+    }
+
+    .mosaico-artes {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 180px);
+        gap: 4px;
+    }
+
+    .overlay-mosaico .ver-mais {
+        font-size: 12px;
+        padding: 8px 16px;
+        letter-spacing: 1px;
+    }
+}
+
+/* Media Query para Mobile */
+@media (max-width: 768px) {
+    /* Ajustes para Artes Digitais */
+    .titulo-artes h1 {
+        font-size: 28px;
+    }
+
+    .titulo-artes p {
+        font-size: 16px;
+    }
+
+    .mosaico-artes {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(7, 150px);
+        gap: 3px;
+    }
+
+    .overlay-mosaico .ver-mais {
+        font-size: 10px;
+        padding: 6px 12px;
+        letter-spacing: 0.5px;
+        border-radius: 15px;
+    }
+
+    /* Modal ajustes para mobile */
+    .modal-conteudo {
+        max-width: 95%;
+        max-height: 70vh;
+    }
+
+    .modal-fechar {
+        font-size: 40px;
+        right: 20px;
+        top: 10px;
+    }
+
+    .modal-info h2 {
+        font-size: 22px;
+    }
+
+    .modal-info p {
+        font-size: 16px;
+    }
+}
+
+/* Media Query para Mobile Pequeno */
+@media (max-width: 480px) {
+    .titulo-artes h1 {
+        font-size: 24px;
+    }
+
+    .titulo-artes p {
+        font-size: 14px;
+    }
+
+    .mosaico-artes {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(7, 120px);
+        gap: 2px;
+    }
+
+    .overlay-mosaico .ver-mais {
+        font-size: 9px;
+        padding: 5px 10px;
+        border-width: 1px;
+    }
+}
 
 
 
